@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hi Lovey 💋</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #ffe6f0;
+      font-family: 'Dancing Script', cursive;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4em;
+      color: #ff69b4;
+      animation: popIn 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .heart {
+      position: fixed;
+      top: 100%;
+      font-size: 2em;
+      color: pink;
+      animation: floatUp 10s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+
+    .next-button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #ff69b4;
+      color: white;
+      font-size: 1.3em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    .next-button:hover {
+      transform: scale(1.05);
+    }
+
+    audio {
+      display: none;
+    }
+
+    .reminder {
+  font-size: 1.1em;
+  color: #ff69b4;
+  margin-top: -20px;
+  margin-bottom: 30px;
+  animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.5em;
+  animation: sparkleFloat 1s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes sparkleFloat {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px) scale(1.5);
+  }
+}
+  </style>
+</head>
+<body>
+
+  <h1>Hi lovey 💋</h1>
+  <p class="reminder">✨ Tap the screen to hear the cute background music, lovey! 💖</p>
+  <button class="next-button" onclick="goToNext()">Take Me In 💖</button>
+
+  <!-- Floating hearts -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 10 + "s";
+      heart.textContent = "💖";
+      document.body.appendChild(heart);
+    }
+
+    function goToNext() {
+      window.location.href = "about.html"; // or whatever your second page is called
+    }
+  </script>
+
+  <!-- Background music -->
+  <audio id="bg-music" loop>
+  <source src="C:\Users\norha\OneDrive\Desktop\MY BB\oldlove.mp3" type="audio/mp3">
+</audio>
+
+<script>
+document.addEventListener("click", () => {
+  const audio = document.getElementById("bg-music");
+  if (audio.paused) {
+    audio.play();
+  }
+}, { once: true }); // only run once
+</script>
+</body>
+</html>
