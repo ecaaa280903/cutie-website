@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Page 💘</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #ffe6f0;
+      font-family: 'Dancing Script', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ff69b4;
+      animation: popIn 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    input[type="password"] {
+      margin-top: 20px;
+      padding: 10px;
+      border: 2px solid #ffb6c1;
+      border-radius: 12px;
+      font-size: 1.2em;
+      background-color: #fff0f5;
+      color: #ff69b4;
+      text-align: center;
+      outline: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .error {
+      color: #ff1493;
+      margin-top: 10px;
+      font-size: 1.1em;
+      display: none;
+    }
+
+    .heart {
+      position: fixed;
+      top: 100%;
+      font-size: 2em;
+      color: pink;
+      animation: floatUp 10s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Enter our date tung uyab nata 🥹</h1>
+
+  <input type="password" id="password" placeholder="MMDDYY">
+  <br>
+  <button onclick="checkPassword()">kung love pako nimo, e unlock daw ni bi 💖</button>
+  <div class="error" id="errorMsg">WTF!!! KALIMOT NAKA 😤😡</div>
+
+  <!-- Floating hearts -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 10 + "s";
+      heart.textContent = "💗";
+      document.body.appendChild(heart);
+    }
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("errorMsg");
+      if (input === "050325") {
+        window.location.href = "letter.html"; // Page 3
+      } else {
+        error.style.display = "block";
+        setTimeout(() => {
+          error.style.display = "none";
+        }, 3000);
+      }
+    }
+  </script>
+  </script>
+
+  <!-- Background music -->
+  <audio id="bg-music" loop>
+  <source src="C:\Users\norha\OneDrive\Desktop\MY BB\oldlove.mp3" type="audio/mp3">
+</audio>
+
+<script>
+document.addEventListener("click", () => {
+  const audio = document.getElementById("bg-music");
+  if (audio.paused) {
+    audio.play();
+  }
+}, { once: true }); // only run once
+</script>
+
+</body>
+</html>

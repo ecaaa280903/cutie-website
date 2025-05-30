@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Memories 💞</title>
+  <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #ffe6f0;
+      font-family: 'Love Ya Like A Sister', cursive;
+      overflow-x: hidden;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+      position: relative;
+    }
+
+    h1 {
+      color: #ff69b4;
+      font-size: 2em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .slideshow-container {
+      width: 80vw;
+      max-width: 600px;
+      height: 400px;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      margin-bottom: 15px;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      object-fit: cover;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .caption {
+      margin-bottom: 30px;
+      font-size: 1.1em;
+      color: #ff69b4;
+      text-align: center;
+      min-height: 1.4em;
+    }
+
+    video {
+      width: 80vw;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      margin: 30px 0;
+    }
+
+    .final-msg {
+      font-size: 1.4em;
+      color: #ff1493;
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 0 20px;
+    }
+
+    .heart {
+      position: fixed;
+      top: 100%;
+      font-size: 2em;
+      color: pink;
+      animation: floatUp 10s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Hearts -->
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 10 + "s";
+      heart.textContent = "💖";
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <h1> 💕</h1>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container" id="slideshow">
+    <img class="slide active" src="1.jpg" alt="memory 1">
+    <img class="slide" src="2.jpg" alt="memory 2">
+    <img class="slide" src="3.jpg" alt="memory 3">
+    <img class="slide" src="6.jpg" alt="memory 3">
+    <img class="slide" src="7.jpg" alt="memory 3">
+    <img class="slide" src="11.jpg" alt="memory 3">
+    <img class="slide" src="12.jpg" alt="memory 3">
+    <img class="slide" src="13.jpg" alt="memory 3">
+  </div>
+  <div class="caption" id="caption"></div>
+
+  <!-- Video -->
+  <video controls>
+    <source src="vids.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Final Message -->
+  <div class="final-msg">
+    I LOVE YOU BB ❤️<br>
+    You're my favorite hello and my hardest goodbye, ily forever bb 🥰😘
+    <br>ay oa rapod HAHAHHA
+  </div>
+
+  <!-- Background Music (autoplay, loop) -->
+  <audio autoplay loop>
+    <source src="oldlove.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Slideshow & Captions Script -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const caption = document.getElementById('caption');
+    const captions = [
+      ""
+    ];
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+      caption.textContent = captions[current];
+    }, 3000);
+  </script>
+
+</body>
+</html>
